@@ -1,10 +1,3 @@
-# Question Answering Web API (FastAPI & Hugging Face)
-
-> **Computational Thinking - Practice 01: Application Programming Interface (API)**  
-> Faculty of Information Technology – VNU-HCM University of Science (HCMUS)
-
----
-
 ## 1. Student Information
 - **Full Name**: Trương Đức Quân
 - **Student ID**: 25127232
