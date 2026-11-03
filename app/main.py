@@ -66,8 +66,6 @@ class QAResponse(BaseModel):
   )
   end: int = Field(..., description="End character index of answer in context.")
 
-
-# Endpoints
 @app.get("/", tags=["General"])
 def root():
   return {
@@ -93,7 +91,6 @@ def root():
 
 @app.get("/health", tags=["General"])
 def health_check():
-  """Checks operational and model status."""
   is_ready = model_instance is not None
   return {
       "status": "healthy" if is_ready else "degraded",

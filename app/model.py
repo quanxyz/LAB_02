@@ -6,8 +6,6 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 
 
 class QuestionAnsweringModel:
-    """Wrapper class for Hugging Face Question Answering model using AutoTokenizer & AutoModel."""
-
     def __init__(self, config_path: str = "config.yaml"):
         self.config_path = config_path
         self.model_path = self._load_model_path(config_path)
@@ -36,7 +34,6 @@ class QuestionAnsweringModel:
         return "distilbert/distilbert-base-cased-distilled-squad"
 
     def predict(self, question: str, context: str) -> Dict[str, Any]:
-        """Runs question answering inference on given question and context."""
         cleaned_question = question.strip()
         cleaned_context = context.strip()
 
@@ -57,20 +54,16 @@ class QuestionAnsweringModel:
         start_idx = int(torch.argmax(start_logits))
         end_idx = int(torch.argmax(end_logits))
 
-        # Ensure valid span
         if end_idx < start_idx:
             end_idx = start_idx
 
-        # Calculate confidence score
         start_prob = torch.softmax(start_logits, dim=-1)[start_idx].item()
         end_prob = torch.softmax(end_logits, dim=-1)[end_idx].item()
         score = round(float(start_prob * end_prob), 4)
 
-        # Decode answer tokens
         answer_tokens = inputs.input_ids[0, start_idx : end_idx + 1]
         answer = self.tokenizer.decode(answer_tokens, skip_special_tokens=True).strip()
 
-        # Locate character positions in context
         start_char = cleaned_context.lower().find(answer.lower()) if answer else -1
         end_char = start_char + len(answer) if start_char != -1 else 0
         if start_char == -1:

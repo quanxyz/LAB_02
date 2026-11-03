@@ -17,7 +17,7 @@
 - **Model Name**: `distilbert/distilbert-base-cased-distilled-squad`
 - **Hugging Face Link**: [https://huggingface.co/distilbert/distilbert-base-cased-distilled-squad](https://huggingface.co/distilbert/distilbert-base-cased-distilled-squad)
 - **Model Description**:  
-  This model is a fine-tuned checkpoint of `DistilBERT-base-cased` on the Stanford Question Answering Dataset (SQuAD v1.1). It is an extractive Question Answering model that reads a context paragraph and a question, then identifies the start and end character positions of the answer within the context, accompanied by a probability confidence score. It achieves comparable accuracy to BERT-base while being ~40% smaller and ~60% faster.
+  This model is a fine-tuned checkpoint of `DistilBERT-base-cased` on the Stanford Question Answering Dataset (SQuAD v1.1). It is an extractive Question Answering model that reads a context paragraph and a question, then identifies the start and end character positions of the answer within the context, accompanied by a probability confidence score.
 
 ---
 
@@ -37,13 +37,7 @@ This project provides a robust, production-ready Web API using **FastAPI** to se
 - `pip` package manager
 
 ### Steps
-1. **Clone the repository:**
-   ```bash
-   git clone <YOUR_REPOSITORY_URL>
-   cd LAB_02
-   ```
-
-2. **Create and activate a virtual environment:**
+1. **Create and activate a virtual environment:**
    - **On Windows (PowerShell):**
      ```powershell
      python -m venv .venv
@@ -55,7 +49,7 @@ This project provides a robust, production-ready Web API using **FastAPI** to se
      source .venv/bin/activate
      ```
 
-3. **Install dependencies:**
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
@@ -92,7 +86,7 @@ python test_api.py
 ### 6.2 Example Requests & Responses
 
 #### Endpoint: `GET /`
-- **Request (cURL):**
+- **Request:**
   ```bash
   curl -X GET http://127.0.0.1:8000/
   ```
@@ -124,7 +118,7 @@ python test_api.py
   }
   ```
 
-#### Endpoint: `POST /predict` (Example 1: Geography)
+#### Endpoint: `POST /predict` Example 1:
 - **Request (cURL):**
   ```bash
   curl -X POST http://127.0.0.1:8000/predict \
@@ -152,7 +146,7 @@ python test_api.py
   }
   ```
 
-#### Endpoint: `POST /predict` (Example 2: Computer Science)
+#### Endpoint: `POST /predict` Example 2: 
 - **Request (Python `requests`):**
   ```python
   import requests
@@ -199,14 +193,7 @@ python test_api.py
 ---
 
 ## 7. Demonstration Video Link
-- **Video Link**: `[INSERT YOUR YOUTUBE OR GOOGLE DRIVE LINK HERE]`
-- **Video Duration**: Maximum 5 minutes.
-- **Demonstration Checklist**:
-  1. Introduction of the model (`distilbert-base-cased-distilled-squad`).
-  2. Brief explanation of the source code structure.
-  3. Demonstration of starting the server and accessing Swagger UI (`/docs`).
-  4. Execution of the automated test script (`python test_api.py`) with multiple test cases.
-  5. Explanation of returned JSON outputs (`answer`, `score`, `start`, `end`).
+- **Video Link**: [https://drive.google.com/file/d/1D4oWmXFzXfRZe9PFNx2L2crD8O7LOcqR/view?usp=sharing](https://drive.google.com/file/d/1D4oWmXFzXfRZe9PFNx2L2crD8O7LOcqR/view?usp=sharing)
 
 ---
 
